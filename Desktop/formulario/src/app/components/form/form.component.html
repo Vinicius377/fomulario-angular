@@ -1,10 +1,11 @@
-<form>
-  <input type="text" placeholder="Nome" />
-  <input type="email" placeholder="Email" />
+<form [formGroup]="data">
+  <input type="text" placeholder="Nome" formControlName="text" />
+  <input type="email" placeholder="Email" formControlName="email" />
   <div class="password-container">
     <input
       [type]="getPasswordIsShow() ? 'password' : 'text'"
       placeholder="Senha"
+      formControlName="password"
     />
     <img
       [src]="
@@ -18,9 +19,9 @@
     />
   </div>
   <fieldset class="small-container">
-    <input type="date" />
-    <input type="number" />
-    <select class="select">
+    <input type="date" formControlName="date" />
+    <input type="number" formControlName="number" />
+    <select class="select" formControlName="selection">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
