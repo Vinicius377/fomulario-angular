@@ -9,7 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
   private passwordIsShow: boolean = true;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getStorageValues();
+  }
   public data = new FormGroup({
     text: new FormControl({ value: '', disabled: true }, Validators.required),
     password: new FormControl(
@@ -50,6 +52,14 @@ export class FormComponent implements OnInit {
       } else {
         alert('preecha todos os campos corretamente!');
       }
+    } else {
+      this.data.enable();
+    }
+  }
+  private getStorageValues(): void {
+    const storageData = localStorage.getItem('values_input');
+    if (storageData) {
+      this.data.setValue(JSON.parse(storageData));
     } else {
       this.data.enable();
     }
