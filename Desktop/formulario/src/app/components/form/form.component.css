@@ -49,6 +49,11 @@ input:focus {
 .password-container input {
   flex: 1;
 }
+.buttons-container {
+  border: none;
+  outline: none;
+  display: flex;
+}
 button {
   padding: 15px;
   font-size: 1.1rem;
@@ -57,10 +62,20 @@ button {
   outline: none;
   cursor: pointer;
   border-radius: 10px;
-  background-color: #42affc;
   transition: 0.1s;
+  flex: 1;
 }
-button:hover {
+.buttons-edit-save:hover {
   border: solid 0.5px #42affc;
+  background-color: #f0f0f0;
+}
+.buttons-edit-save {
+  background-color: #42affc;
+}
+.buttons-clear {
+  background-color: #fc5842;
+}
+.buttons-clear:hover {
+  border: solid 0.5px #fc5842;
   background-color: #f0f0f0;
 }

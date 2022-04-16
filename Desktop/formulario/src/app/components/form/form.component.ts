@@ -8,7 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   private passwordIsShow: boolean = true;
-  constructor() {}
+
+  ngOnInit(): void {}
   public data = new FormGroup({
     text: new FormControl({ value: '', disabled: true }, Validators.required),
     password: new FormControl(
@@ -33,11 +34,24 @@ export class FormComponent implements OnInit {
       Validators.required
     ),
   });
-  ngOnInit(): void {}
   public setPasswordIsShow(): void {
     this.passwordIsShow = !this.passwordIsShow;
   }
   public getPasswordIsShow(): boolean {
     return this.passwordIsShow;
+  }
+  public saveAndEditForm(e: Event): void {
+    e.preventDefault();
+
+    if (this.data.enabled) {
+      if (this.data.valid) {
+        this.data.disable();
+        localStorage.setItem('values_input', JSON.stringify(this.data.value));
+      } else {
+        alert('preecha todos os campos corretamente!');
+      }
+    } else {
+      this.data.enable();
+    }
   }
 }

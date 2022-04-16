@@ -22,9 +22,12 @@
     <input type="date" formControlName="date" />
     <input type="number" formControlName="number" />
     <select class="select" formControlName="selection">
+      <legend>Quantos anos você tem de experiência?</legend>
+      <option value="1">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
+      <option value="3">4 ou mais</option>
     </select>
   </fieldset>
   <fieldset class="checkbox-container">
@@ -42,6 +45,10 @@
       VueJS
     </label>
   </fieldset>
-
-  <button></button>
+  <fieldset class="buttons-container">
+    <button (click)="saveAndEditForm($event)" class="buttons-edit-save">
+      {{ data.enabled ? "Salvar" : "Editar" }}
+    </button>
+    <button class="buttons-clear">Limpar Dados</button>
+  </fieldset>
 </form>
