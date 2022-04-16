@@ -1,9 +1,21 @@
 <form>
-  <input type="text" placeholder="Texto" />
+  <input type="text" placeholder="Nome" />
   <input type="email" placeholder="Email" />
   <div class="password-container">
-    <input type="password" placeholder="Senha" />
-    <img src="/assets/show-password.svg" alt="visualizar a senha" width="30" />
+    <input
+      [type]="getPasswordIsShow() ? 'password' : 'text'"
+      placeholder="Senha"
+    />
+    <img
+      [src]="
+        getPasswordIsShow()
+          ? '/assets/show-password.svg'
+          : '/assets/hide-password.svg'
+      "
+      alt=""
+      width="30"
+      (click)="setPasswordIsShow()"
+    />
   </div>
   <fieldset class="small-container">
     <input type="date" />
