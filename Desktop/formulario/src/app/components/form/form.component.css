@@ -1,0 +1,66 @@
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1.05rem;
+}
+.checkbox-container {
+  border: none;
+  gap: 8px;
+  display: flex;
+}
+.small-container {
+  display: flex;
+  border: none;
+  gap: 8px;
+}
+input {
+  font-size: 1.05rem;
+  padding: 10px;
+  outline: none;
+  border: solid 0.5px transparent;
+  border-bottom: solid 0.5px #c4c4c4;
+  border-radius: 10px;
+}
+input:focus {
+  border: solid 0.5px rgb(82, 199, 253);
+}
+.checkbox-container label {
+  margin: 10px;
+  font-size: 1.2rem;
+}
+.select {
+  outline: none;
+  border-radius: 5px;
+  border: solid 0.5px #c4c4c4;
+}
+.select:focus {
+  border: solid 0.5px rgb(82, 199, 253);
+}
+.password-container {
+  display: flex;
+  align-items: center;
+}
+.password-container img {
+  cursor: pointer;
+  margin-inline: 30px;
+}
+.password-container input {
+  flex: 1;
+}
+button {
+  padding: 15px;
+  font-size: 1.1rem;
+  margin: 10px 70px;
+  border: solid 0.5px #c4c4c4;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #42affc;
+  transition: 0.1s;
+}
+button:hover {
+  border: solid 0.5px #42affc;
+  background-color: #f0f0f0;
+}
