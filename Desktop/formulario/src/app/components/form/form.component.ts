@@ -64,4 +64,9 @@ export class FormComponent implements OnInit {
       this.data.enable();
     }
   }
+  public clearFields(): void {
+    localStorage.removeItem('values_input');
+    this.data.reset();
+    this.data.enable();
+  }
 }

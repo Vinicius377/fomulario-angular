@@ -49,6 +49,6 @@
     <button (click)="saveAndEditForm($event)" class="buttons-edit-save">
       {{ data.enabled ? "Salvar" : "Editar" }}
     </button>
-    <button class="buttons-clear">Limpar Dados</button>
+    <button class="buttons-clear" (click)="clearFields()">Limpar Dados</button>
   </fieldset>
 </form>
