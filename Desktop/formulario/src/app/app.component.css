@@ -6,3 +6,16 @@
   box-shadow: -7px 7px 12px 0 rgba(0, 0, 0, 0.4);
   border-radius: 0 10px 10px 10px;
 }
+
+/* Media queries */
+@media (max-width: 840px) {
+  .app {
+    width: 80vw;
+  }
+}
+@media (max-width: 610px) {
+  .app {
+    width: 90vw;
+    font-size: 90%;
+  }
+}

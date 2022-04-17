@@ -35,7 +35,6 @@ export class FormComponent implements OnInit {
       Validators.email,
     ]),
     number: new FormControl({ value: '', disabled: true }, Validators.required),
-    // checkbox: new FormArray([new FormControl()]),
     date: new FormControl({ value: '', disabled: true }, Validators.required),
     selection: new FormControl(
       {
@@ -54,7 +53,7 @@ export class FormComponent implements OnInit {
       this.data.enable();
     }
   }
-  private verifyValuesFields() {
+  private verifyValuesFields(): void {
     if (this.data.valid) {
       this.data.disable();
       localStorage.setItem('values_input', JSON.stringify(this.data.value));

@@ -1,27 +1,38 @@
-# Formulario
+<h1 align="center">Desafio Supera Inovação em Tecnologia</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+## Oque se trata?
 
-## Development server
+Trata-se de um formulário que valída os valores dos inputs e salva-os no storage no Browser.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias e bibliotecas utilizadas
 
-## Code scaffolding
+- Angular
+- Typescript
+- Angular-toastly
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requisitos minimos
 
-## Build
+- Ter o [nodejs](https://nodejs.org/en/){:target="\_blank"} instalado na sua maquina
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Como utilizar
 
-## Running unit tests
+- Faça o clone desse repositório
+- Abra o projeto em algum editor de código de sua preferência
+- No terminal do editor:
+  - Execute o comando `npm install` para baixar todas as dependências do projeto
+  - Logo após baixar as dependências, execute `npm start`
+- O projeto irá abrir em http://localhost:4200/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Screenshots
 
-## Running end-to-end tests
+![estado inicial](./screenshots/form1.PNG)
+Se não houver nenhum dado armazenado no storage, os inputs iniciaram habilitados.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![notificação de erro](./screenshots/form2.PNG)
+Se houver algum input com o valor inválido ao salvar, aparecerá uma notificação dizendo qual input está inválido.
 
-## Further help
+![notificação de dados apagados](./screenshots/form3.PNG)
+Você pode pode também limpar os valores armazenados no storage, basta clicar em "Limpar dados" e aparecerá uma notificação de alerta.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![notificação de sucesso](./screenshots/form4.PNG)
+Se todos os inputs estiverem valídos ao salvar, aparecerá uma notificação de sucesso.

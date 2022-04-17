@@ -79,3 +79,20 @@ button {
   border: solid 0.5px #fc5842;
   background-color: #f0f0f0;
 }
+
+/* Media queries */
+@media (max-width: 610px) {
+  form {
+    font-size: 90%;
+  }
+  button {
+    margin: 8px 20px;
+    font-size: 1rem;
+  }
+  input {
+    font-size: 1rem;
+  }
+  .small-container {
+    flex-direction: column;
+  }
+}
