@@ -1,5 +1,5 @@
-<form [formGroup]="data">
-  <input type="text" placeholder="Nome" formControlName="text" />
+<form [formGroup]="data" (submit)="saveAndEditForm($event)">
+  <input type="text" placeholder="Texto" formControlName="text" />
   <input type="email" placeholder="Email" formControlName="email" />
   <div class="password-container">
     <input
@@ -19,19 +19,21 @@
     />
   </div>
   <fieldset class="small-container">
-    <input type="date" formControlName="date" />
-    <input type="number" formControlName="number" />
+    <div>
+      <input type="date" formControlName="date" />
+    </div>
+    <div>
+      <input type="number" formControlName="number" />
+    </div>
     <select class="select" formControlName="selection">
-      <legend>Quantos anos você tem de experiência?</legend>
       <option value="1">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
-      <option value="3">4 ou mais</option>
+      <option value="3">4</option>
     </select>
   </fieldset>
   <fieldset class="checkbox-container">
-    <legend>Qual framework/lib javascript você mais gosta?</legend>
     <label>
       <input type="checkbox" value="ReactJS" />
       ReactJS
@@ -46,7 +48,7 @@
     </label>
   </fieldset>
   <fieldset class="buttons-container">
-    <button (click)="saveAndEditForm($event)" class="buttons-edit-save">
+    <button class="buttons-edit-save">
       {{ data.enabled ? "Salvar" : "Editar" }}
     </button>
     <button class="buttons-clear" (click)="clearFields()">Limpar Dados</button>

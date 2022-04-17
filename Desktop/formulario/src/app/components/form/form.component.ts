@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from 'angular-toastify';
 
 @Component({
   selector: 'app-form',
@@ -7,11 +8,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  private passwordIsShow: boolean = true;
-
   ngOnInit(): void {
     this.getStorageValues();
   }
+  constructor(private _toastService: ToastService) {}
+
+  private passwordIsShow: boolean = true;
+  public setPasswordIsShow(): void {
+    this.passwordIsShow = !this.passwordIsShow;
+  }
+  public getPasswordIsShow(): boolean {
+    return this.passwordIsShow;
+  }
+
   public data = new FormGroup({
     text: new FormControl({ value: '', disabled: true }, Validators.required),
     password: new FormControl(
@@ -36,24 +45,30 @@ export class FormComponent implements OnInit {
       Validators.required
     ),
   });
-  public setPasswordIsShow(): void {
-    this.passwordIsShow = !this.passwordIsShow;
-  }
-  public getPasswordIsShow(): boolean {
-    return this.passwordIsShow;
-  }
+
   public saveAndEditForm(e: Event): void {
     e.preventDefault();
-
     if (this.data.enabled) {
-      if (this.data.valid) {
-        this.data.disable();
-        localStorage.setItem('values_input', JSON.stringify(this.data.value));
-      } else {
-        alert('preecha todos os campos corretamente!');
-      }
+      this.verifyValuesFields();
     } else {
       this.data.enable();
+    }
+  }
+  private verifyValuesFields() {
+    if (this.data.valid) {
+      this.data.disable();
+      localStorage.setItem('values_input', JSON.stringify(this.data.value));
+      this._toastService.success('Os valores foram salvos!');
+    } else {
+      let fieldsInvalids: string[] = [];
+      Object.keys(this.data.controls).forEach((fieldName) => {
+        if (this.data.controls[fieldName].status === 'INVALID') {
+          fieldsInvalids.push(fieldName);
+        }
+      });
+      this._toastService.error(
+        `O campo de ${fieldsInvalids[0]} está incorreto!`
+      );
     }
   }
   private getStorageValues(): void {
@@ -68,5 +83,6 @@ export class FormComponent implements OnInit {
     localStorage.removeItem('values_input');
     this.data.reset();
     this.data.enable();
+    this._toastService.warn('Os valores foram limpos do storage!');
   }
 }
