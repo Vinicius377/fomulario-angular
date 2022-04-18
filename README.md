@@ -12,7 +12,7 @@ Trata-se de um formulário que valída os valores dos inputs e salva-os no stora
 
 ## Requisitos minimos
 
-- Ter o [nodejs](https://nodejs.org/en/){:target="\_blank"} instalado na sua maquina
+- Ter o [nodejs](https://nodejs.org/en/) instalado na sua maquina
 
 ## Como utilizar
 
